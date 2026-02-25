@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Shooter | Elite Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <title>Space Shooter - Elite Edition</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        body { margin: 0; background: #000; overflow: hidden; font-family: 'Orbitron', sans-serif; }
+        #gameArea { width: 100vw; height: 100vh; background: radial-gradient(circle at center, #111, #000); position: relative; }
+        #player { width: 50px; height: 50px; background: cyan; position: absolute; bottom: 20px; transform: translateX(-50%); clip-path: polygon(50% 0%, 0% 100%, 100% 100%); box-shadow: 0 0 20px cyan; transition: left 0.1s linear; }
+        .bullet { width: 4px; height: 15px; background: #00ffcc; position: absolute; border-radius: 2px; box-shadow: 0 0 10px #00ffcc; }
+        .enemy { width: 40px; height: 40px; background: #ff0055; position: absolute; border-radius: 4px; box-shadow: 0 0 15px #ff0055; }
+        .explosion { position: absolute; width: 40px; height: 40px; background: orange; border-radius: 50%; animation: explode 0.5s forwards; }
+        @keyframes explode { 0% { transform: scale(0.5); opacity: 1; } 100% { transform: scale(3); opacity: 0; } }
+        #hud { position: absolute; top: 20px; left: 20px; color: #fff; text-shadow: 0 0 10px #fff; }
+        .version { position: absolute; bottom: 10px; right: 10px; color: #333; font-size: 10px; }
+    </style>
 </head>
 <body>
     <div id="gameArea">
-        <div id="hud" style="position: absolute; top: 20px; left: 20px; z-index: 100;">
-            <div style="font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">Score: <span id="score">0</span></div>
-            <div style="font-size: 12px; opacity: 0.6; margin-top: 5px;">SYSTEMS: <span style="color: #00ff88;">NOMINAL</span></div>
+        <div id="hud">
+            <h1 style="margin: 0; font-size: 12px; opacity: 0.5;">ELITE SPACE SHOOTER</h1>
+            <div style="font-size: 24px; font-weight: 900;">SCORE: <span id="score">0</span></div>
         </div>
         <div id="player"></div>
+        <div class="version">V2.0.0-REFECTORED</div>
     </div>
-    <script src="script.js"></script>
+    <script src="script_v2.js"></script>
 </body>
 </html>
